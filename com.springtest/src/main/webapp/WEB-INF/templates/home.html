@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>aaaaaaaaaa</title>
+<script type="text/javascript" src="/static/js/jquery-3.2.1/jquery-3.2.1.js"></script>
+</head>
+<body>
+<p th:text="'Hello！, ' + ${name} + '!'" >3333</p>
+
+<p><button id="button">click</button></p>
+</body>
+
+<script type="text/javascript">
+$("button").click(function(){
+	$.get("/getException",function(data,status){
+		alert("Data: " + data + "nStatus: " + status);
+	});
+	});
+</script>
+</html>
