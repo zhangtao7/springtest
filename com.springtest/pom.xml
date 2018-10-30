@@ -6,29 +6,19 @@
   <artifactId>com.springtest</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
-  <url>https://repo.spring.io/libs-milestone</url>
   <name>springtest</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <spring.version>5.0.0.RELEASE</spring.version>
+    <spring.version>5.1.2.RELEASE</spring.version>
     <javax.servlet.version>4.0.0</javax.servlet.version>
     
     <aspectj.version>1.8.10</aspectj.version>
     <thymeleaf.version>3.0.7.RELEASE</thymeleaf.version>
     <sf4j.version>1.7.25</sf4j.version>
-    <log4j2.version>2.9.0</log4j2.version>
+    <log4j2.version>2.11.1</log4j2.version>
   </properties>
-	<repositories>
-	    <repository>
-	        <id>spring-milestones</id>
-	        <name>Spring Milestones</name>
-	        <url>https://repo.spring.io/libs-milestone</url>
-	        <snapshots>
-	            <enabled>false</enabled>
-	        </snapshots>
-	    </repository>
-	</repositories>
+	
   <dependencies>
   	<dependency>
   		<groupId>org.springframework</groupId>
@@ -94,7 +84,7 @@
 	    <artifactId>hibernate-validator</artifactId>  
 	    <version>6.0.0.Final</version>  
 	</dependency>  
-  <!--  -->
+  	<!--  -->
 	<dependency>  
 	   <groupId>javax.el</groupId>  
 	   <artifactId>javax.el-api</artifactId>  
@@ -141,6 +131,11 @@
   	
   	
   	
+  	<dependency>
+	    <groupId>org.postgresql</groupId>
+	    <artifactId>postgresql</artifactId>
+	    <version>42.1.4</version>
+	</dependency>
   	
   	
   	
@@ -263,6 +258,7 @@
         </pluginManagement>
  
   </build>
+  <!--  
 <distributionManagement>
 	 <repository>
 	        <id>spring-milestones</id>
@@ -273,4 +269,5 @@
 	        </snapshots>
 	    </repository>
 </distributionManagement>
+-->
 </project>

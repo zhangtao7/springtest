@@ -16,17 +16,17 @@ public class AspectBean {
 	public void pointcut() {}
 	
 	
-	@Pointcut("execution(int com.springtest.chapter4.one.HelloServiceImpl.*(..)))")
+	@Pointcut("execution(int com.springtest.chapter4.one.HelloServiceImpl.*(..))")
 	public void pointcut2() {
 		
 	}
 	@Before("pointcut()")
 	public void before() {
-		log.info(">>>>>before point>>>>>>>>>>");
+		log.info(">>>>>before point before>>>>>>>>>>");
 	}
 	
 	@After("pointcut2()")
 	public void after() {
-		log.info(">>>after>>>>>");
+		log.info(">>>after pointcut2>>>>>");
 	}
 }
