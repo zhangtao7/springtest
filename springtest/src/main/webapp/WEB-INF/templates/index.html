@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Index Page</title>
+<script type="text/javascript" src="/static/js/jquery-3.2.1/jquery-3.2.1.js"></script>
+</head>
+<body>
+<p th:text="'Hello！, ' + ${name} + '!'" >3333</p>
+
+<form id="frm" name="frm">
+name:<input type="text" name="username" /><br/>
+pwd:<input type="text" name="password" /><br/>
+id:<input type="text" name="id" /><br/>
+ctime:<input type="text" name="ctime" /><br/>
+
+</form>
+<button id="submitButton">save</button>
+<!--  
+<p><button id="button">click</button></p>
+-->
+</body>
+
+<script type="text/javascript">
+//将form转换为AJAX提交
+function ajaxSubmit(url,frm,succ,err){
+ var dataPara=getFormJson(frm);
+ $.ajax({
+  url:url,
+  type:"post",
+  data:dataPara,
+  async:false,
+  dataType:'txt',
+  success:succ,
+  error:err
+ });
+}
+//将form中的值转换为键值对
+function getFormJson(frm){
+ var o={};
+ var a=$(frm).serializeArray();
+
+ $.each(a,function(){
+  if(o[this.name]!==undefined){
+   if(!o[this.name].push){
+    o[this.name]=[o[this.name]];
+   }
+   o[this.name].push(this.value || '');
+  }else{
+   o[this.name]=this.value || '';
+  }
+ });
+ return o;
+}
+/*
+//前台调用方式
+function autoSubmitFun(){
+  ajaxSubmit("autoSumitScoreAJAX.action",$('#formId'),function(){});
+}
+*/
+
+/*
+$("button").click(function(){
+	$.get("/getException",function(data,status){
+		alert("Data: " + data + "nStatus: " + status);
+	});
+	});
+*/
+$("#submitButton").click(function(){
+	//alert(88);
+	ajaxSubmit("/save",$('#frm'),function(rep){
+		alert(1);
+	},
+	
+	function(rep){
+		var a=JSON.stringify(rep);
+		//console.log(">>>error>>>>"+a);
+		alert(a);
+	}
+	
+	
+	);
+});
+	
+	
+</script>
+</html>
